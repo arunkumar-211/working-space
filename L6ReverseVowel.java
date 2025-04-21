@@ -6,7 +6,7 @@ output :- acecreIms
 
 Algorithm :-
     1. loop and find the vowel
-    2. move at last and swap with the one found
+    2. move at last and swap with the one found from the end index
     3. return the reversed form of vowel result
 
 
