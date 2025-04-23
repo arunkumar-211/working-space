@@ -29,7 +29,7 @@ class Q24MaxPalindrome {
         String tempStr1 = "";
         String tempStr2 = "";
         String resStr = "";
-        Integer reslen = Integer.MIN_VALUE;
+        Integer reslen = 0;
 
         for(int i = 0; i < str.length(); i++){
             if(str.toCharArray()[i] == str.toCharArray()[str.length()-1-i]) {
