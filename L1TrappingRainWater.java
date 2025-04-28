@@ -3,7 +3,7 @@ Trapping Rain Water
 Input: height = [4,2,0,3,2,5]
 Output: 9
 
-Algorithm
+Algorithm :-
 1. traverse from the left and get the max
 2. traverse from the right and get the max
 3. compare the two left and right arrays and get the min
