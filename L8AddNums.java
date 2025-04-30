@@ -77,7 +77,7 @@ public class L8AddNums {
         Node res = L8AddNums.getAddNums(head1.next, head2.next);
 
         while(res != null) {
-            System.out.print(res.val);
+            System.out.print("The add numbers result is: "+res.val);
             res = res.next;
         
         }
