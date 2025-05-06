@@ -7,40 +7,51 @@ Output
 3
 
 Algorithm :-
-    1. outer loop the string to the end
-    2. inner loop the string form the start
-    3. declare the boolean matrix to check the boundary condition
-    4. compare the letters
-    5. check the palindrome difference
-    6. set the boolean value in the matrix
-    7. store the result in the arraylist
-    8. return the arraylist size.
+    1. loop all the elements to the end
+    2. consider each element and loop to the end
+    3. form the substring
+    4. check the string for the palindrome
+    5. add the palindrome substring to the list
+    6. print the result list
 
 */
 
 
 class L11PalindromicSubstring {
-
-public static void main(String[] args) {
-
-    String s = "abc";
-
-    
-List<String> result = new ArrayList<>();
-    boolean[][] dp = new boolean[s.length()][s.length()];
-
-    for (int end = 0; end < s.length(); end++) {
-        for (int start = 0; start <= end; start++) {
-            if (s.charAt(start) == s.charAt(end) && (end - start <= 2 || dp[start + 1][end - 1])) {
-                dp[start][end] = true;
-                result.add(s.substring(start, end + 1));
+public static boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
             }
+            left++;
+            right--;
         }
+        return true;
     }
 
-    System.out.println("The palindromix substring size is: "+result.size());
+    public static List<String> findAllPalindromes(String s) {
+        int n = s.length();
+        List<String> palindromes = new ArrayList<>();
 
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                String substring = s.substring(i, j + 1);
+                if (isPalindrome(substring)) {
+                     palindromes.add(substring);
+                }
+            } 
+        }
+        return palindromes;
 
     }
 
+    public static void main(String[] args) {
+        String s = "abcdcbaefgcbab";
+        List<String> allPalindromes = findAllPalindromes(s);
+        System.out.println("All palindrome substrings in '" + s + "' are: " + allPalindromes);
+        System.out.println("All palindrome substrings in '" + s + "' are: " + allPalindromes.size());
+        }
 }
+
